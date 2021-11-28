@@ -32,11 +32,11 @@ const getWord = async function () {
     
     } else {
         const words = await request.text();
-        console.log(`words from the file`)
-        console.log(words);
+        //console.log(`words from the file`)
+        //console.log(words);
         const getWordArray = words.split("\n");
-        console.log(`this is getWordArray`)
-        console.log(getWordArray);
+        //console.log(`this is getWordArray`)
+        //console.log(getWordArray);
         const randomWordIndex = Math.floor(Math.random() * getWordArray.length);
         word = getWordArray[randomWordIndex].trim();
         if (word.length > 10) {
@@ -73,7 +73,7 @@ guessButton.addEventListener("click", function (e) {
     const letterGuess = inputLetter.value;
     // validate entered letter is only one letter
     const correctGuess = oneLetter(letterGuess);
-    console.log(correctGuess);
+    //console.log(correctGuess);
     // call make Guess function if correctGuess has a valid result
     if (correctGuess) {
         makeGuess(correctGuess);
@@ -105,7 +105,7 @@ const makeGuess = function(letter) {
         guessMessage.innerText = "You've already entered that letter. Try again.";
     } else {
         guessedLetters.push(letter);
-        console.log(guessedLetters);
+       //console.log(guessedLetters);
         showGuessedLetters();
         guessesRemaining(letter);
         updateWordInProgress(guessedLetters);
@@ -126,16 +126,16 @@ const showGuessedLetters = function () {
 
 //function that shows guessed letters updating the word in progress
 const updateWordInProgress = function (guessedLetters) {
-    console.log(`this is guessedLetters`);
-    console.log(guessedLetters);
+    //console.log(`this is guessedLetters`);
+    //console.log(guessedLetters);
     //update word being guessed to uppercase
     const wordUpper = word.toUpperCase();
-    console.log(`this is word`);
-    console.log(word);
+    //console.log(`this is word`);
+    //console.log(word);
     //convert word to be guessed into an array
     const wordArray = wordUpper.split("");
-    console.log(`this is wordArray`);
-    console.log(wordArray);
+    //console.log(`this is wordArray`);
+    //console.log(wordArray);
     //declare array to hold updated letters
     const matchArray = [];
     for (const letter of wordArray) { 
@@ -146,8 +146,8 @@ const updateWordInProgress = function (guessedLetters) {
           }
     }
     wordInProgress.innerText = matchArray.join("");
-    console.log(`this is matchArray`);
-    console.log(matchArray);
+    //console.log(`this is matchArray`);
+    //console.log(matchArray);
     checkIfWon();
 };
 
